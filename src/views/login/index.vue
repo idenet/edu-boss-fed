@@ -5,7 +5,7 @@
       2. :rules="rules"
       3. ref="ruleForm"
       4. el-form-item 绑定 prop 属性
-     -->
+    -->
     <el-form
       class="login-form"
       label-position="top"
@@ -21,12 +21,7 @@
         <el-input type="password" v-model="form.password"></el-input>
       </el-form-item>
       <el-form-item>
-        <el-button
-          class="login-btn"
-          type="primary"
-          :loading="isLoginLoading"
-          @click="onSubmit"
-        >登录</el-button>
+        <el-button class="login-btn" type="primary" :loading="isLoginLoading" @click="onSubmit">登录</el-button>
       </el-form-item>
     </el-form>
   </div>
@@ -39,7 +34,7 @@ import { login } from '@/services/user'
 
 export default Vue.extend({
   name: 'LoginIndex',
-  data () {
+  data() {
     return {
       form: {
         phone: '18201288771',
@@ -60,7 +55,7 @@ export default Vue.extend({
   },
 
   methods: {
-    async onSubmit () {
+    async onSubmit() {
       try {
         // 1. 表单验证
         await (this.$refs.form as Form).validate()

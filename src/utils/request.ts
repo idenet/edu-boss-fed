@@ -9,6 +9,14 @@ const request = axios.create({
   // timeout
 })
 
+function getBaseUrl (url: any) {
+  if (url.startsWith('/boss')) {
+    return 'http://eduboss.lagou.com'
+  } else {
+    return 'http://edufront.lagou.com'
+  }
+}
+
 function redirectLogin () {
   router.push({
     name: 'login',
@@ -31,6 +39,8 @@ function refreshToken () {
 
 // 请求拦截器
 request.interceptors.request.use(function (config) {
+  // 判断config.url前缀，来进行baseUrl的设置
+  config.baseURL = getBaseUrl(config.url)
   // 我们就在这里通过改写 config 配置信息来实现业务功能的统一处理
   const { user } = store.state
   if (user && user.access_token) {
