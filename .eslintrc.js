@@ -28,6 +28,7 @@ module.exports = {
       }
     ],
     "@typescript-eslint/no-explicit-any": "off",
-    "space-before-function-paren": "off"
+    "space-before-function-paren": "off",
+    "@typescript-eslint/camelcase": "off"
   }
 };
